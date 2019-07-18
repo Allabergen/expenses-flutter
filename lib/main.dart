@@ -1,3 +1,4 @@
+import 'package:expenses_flutter/widgets/chart.dart';
 import 'package:expenses_flutter/widgets/new_transactions.dart';
 import 'package:expenses_flutter/widgets/transaction_list.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +16,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
         accentColor: Colors.pinkAccent,
-        cardColor: Colors.white,
-        backgroundColor: Colors.grey[100],
+        cardColor: Colors.grey[100],
+        backgroundColor: Colors.white,
         fontFamily: 'ReemKufi',
         textTheme: ThemeData.light().textTheme.copyWith(
               title: TextStyle(fontFamily: 'ReemKafi', fontSize: 16.0),
@@ -34,12 +35,18 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
-    Transaction(
-        id: 't1', title: 'New Shoes', amount: 34.3, date: DateTime.now()),
-    Transaction(id: 't2', title: 'Laptop', amount: 350.5, date: DateTime.now()),
-    Transaction(
-        id: 't3', title: 'Watermelon', amount: 6.3, date: DateTime.now()),
+    // Transaction(
+    //     id: 't1', title: 'New Shoes', amount: 34.3, date: DateTime.now()),
+    // Transaction(id: 't2', title: 'Laptop', amount: 350.5, date: DateTime.now()),
+    // Transaction(
+    //     id: 't3', title: 'Watermelon', amount: 6.3, date: DateTime.now()),
   ];
+
+  List<Transaction> get _recentTransactions {
+    return _userTransactions.where((tx) {
+      return tx.date.isAfter(DateTime.now().subtract(Duration(days: 7)));
+    }).toList();
+  }
 
   void _addNewTransaction(String title, double amount) {
     final newTx = Transaction(
@@ -85,10 +92,8 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             // Chart
-            Card(
-              child: Text('Chart'),
-              elevation: 4.0,
-            ),
+            Chart(_recentTransactions),
+            // Transaction List
             TransactionList(transactions: _userTransactions),
           ],
         ),

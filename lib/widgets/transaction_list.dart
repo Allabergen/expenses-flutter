@@ -10,13 +10,20 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 536,
+      height: 400,
       color: Theme.of(context).backgroundColor,
       child: transactions.isEmpty
           ? Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text('No Transactions'),
-                Image.asset('images/nothing.png'),
+                Text(
+                  'No Transactions',
+                  style: TextStyle(fontSize: 24.0),
+                ),
+                Image.asset(
+                  'assets/images/nothing.png',
+                  width: 150.0,
+                ),
               ],
             )
           : ListView.builder(
