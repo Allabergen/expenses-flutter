@@ -12,6 +12,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Expenses',
+      theme: ThemeData(
+        primarySwatch: Colors.blueGrey,
+        accentColor: Colors.pinkAccent,
+        cardColor: Colors.white,
+        backgroundColor: Colors.grey[100],
+        fontFamily: 'ReemKufi',
+        textTheme: ThemeData.light().textTheme.copyWith(
+              title: TextStyle(fontFamily: 'ReemKafi', fontSize: 16.0),
+            ),
+      ),
       home: MyHomePage(),
     );
   }
