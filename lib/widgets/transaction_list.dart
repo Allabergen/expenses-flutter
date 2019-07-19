@@ -36,6 +36,7 @@ class TransactionList extends StatelessWidget {
                   elevation: 4.0,
                   margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
                   child: ListTile(
+                    // Amount in circle
                     leading: CircleAvatar(
                       radius: 30.0,
                       child: Padding(
@@ -45,18 +46,28 @@ class TransactionList extends StatelessWidget {
                         ),
                       ),
                     ),
+                    // Title
                     title: Text(
                       transactions[index].title,
                     ),
+                    // Date
                     subtitle: Text(
                       DateFormat.yMMMd().format(transactions[index].date),
                       style: TextStyle(fontSize: 12.0),
                     ),
-                    trailing: IconButton(
-                      icon: Icon(Icons.delete),
-                      color: Theme.of(context).errorColor,
-                      onPressed: () => deleteTx(transactions[index].id),
-                    ),
+                    // Delete Button
+                    trailing: MediaQuery.of(context).size.width > 450
+                        ? FlatButton.icon(
+                            icon: Icon(Icons.delete),
+                            label: Text('Delete'),
+                            textColor: Theme.of(context).errorColor,
+                            onPressed: () => deleteTx(transactions[index].id),
+                          )
+                        : IconButton(
+                            icon: Icon(Icons.delete),
+                            color: Theme.of(context).errorColor,
+                            onPressed: () => deleteTx(transactions[index].id),
+                          ),
                   ),
                 );
               },
