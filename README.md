@@ -1,16 +1,16 @@
-# expenses_flutter
+# Expenses Flutter
 
-A new Flutter project.
+Simple Expenses Flutter App
 
-## Getting Started
+# What's used:
+- ListView
+- Text, Amount input, Date Picker
+- Adding transaction by FloatingActionButton and IconButton in AppBar
+- Delete transaction
+- Modal Bottom Sheet
+- Style with Theme, Fonts, Image
+- Custom Chart Bar
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# What to do:
+- Store data in Database
+- Some improvements in styling (remove hardcoded values, etc.)
