@@ -13,19 +13,23 @@ class TransactionList extends StatelessWidget {
     return Container(
       color: Theme.of(context).backgroundColor,
       child: transactions.isEmpty
-          ? Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  'No Transactions',
-                  style: TextStyle(fontSize: 24.0),
-                ),
-                Image.asset(
-                  'assets/images/nothing.png',
-                  width: 150.0,
-                ),
-              ],
-            )
+          // No transaction Image
+          ? LayoutBuilder(builder: (ctx, constraints) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'No Transactions',
+                    style: TextStyle(fontSize: 24.0),
+                  ),
+                  Image.asset(
+                    'assets/images/nothing.png',
+                    height: constraints.maxHeight * 0.5,
+                  ),
+                ],
+              );
+            })
+          // List of transactions
           : ListView.builder(
               itemBuilder: (context, index) {
                 return Card(
