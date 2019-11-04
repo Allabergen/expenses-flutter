@@ -2,6 +2,8 @@
 
 Simple Expenses Flutter App
 
+![Expenses](https://github.com/Allabergen/assets/blob/master/expenses.jpg)
+
 # What's used:
 - ListView
 - Text, Amount input, Date Picker
